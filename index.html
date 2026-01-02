@@ -892,6 +892,14 @@ function openModal(src) {
   modalImg.src = src;
   modal.classList.add("active");
 
+  if (window.innerWidth <= 768) {
+    scrollPos = window.scrollY; 
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollPos}px`;
+    document.body.style.width = "100%";
+  }
+}
+
   // Disable body scroll on mobile
   if (window.innerWidth <= 768) {
     document.body.classList.add("body-no-scroll");
@@ -901,7 +909,12 @@ function openModal(src) {
 function closeModal() {
   const modal = document.getElementById("modal");
   modal.classList.remove("active");
-  document.body.classList.remove("body-no-scroll");
+
+  if (window.innerWidth <= 768) {
+    document.body.style.position = "";
+    document.body.style.top = "";
+    window.scrollTo(0, scrollPos); 
+  }
 }
 
 // Close modal when clicking outside image
@@ -1043,6 +1056,7 @@ document.querySelectorAll('.menu-section .zoom-static img').forEach(img => {
   
 </body>
 </html>
+
 
 
 
