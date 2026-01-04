@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réservations - Restaurant Lyon</title>
+    <meta name="description" content="Réservez votre table au Restaurant Lyon. Formulaire de réservation en ligne avec validation et calendrier disponible.">
+    <meta name="keywords" content="réservation restaurant Lyon, réserver table, formulaire réservation, calendrier disponibilité">
+    <meta name="author" content="Restaurant Lyon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Restaurant Lyon</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="reservations.html" class="active">Réservations</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="reservation-hero">
+            <h2>Réservez Votre Table</h2>
+            <p>Réservez facilement votre table en ligne et profitez d'une expérience culinaire exceptionnelle.</p>
+        </section>
+
+        <section class="reservation-form-section">
+            <div class="form-container">
+                <h3>Formulaire de Réservation</h3>
+                <form id="reservation-form" action="#" method="post">
+                    <div class="form-group">
+                        <label for="name">Nom complet *</label>
+                        <input type="text" id="name" name="name" required>
+                        <span class="error-message" id="name-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                        <span class="error-message" id="email-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Téléphone *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                        <span class="error-message" id="phone-error"></span>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date">Date *</label>
+                            <input type="date" id="date" name="date" required min="<?php echo date('Y-m-d'); ?>">
+                            <span class="error-message" id="date-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="time">Heure *</label>
+                            <select id="time" name="time" required>
+                                <option value="">Sélectionnez une heure</option>
+                                <option value="12:00">12:00</option>
+                                <option value="12:30">12:30</option>
+                                <option value="13:00">13:00</option>
+                                <option value="13:30">13:30</option>
+                                <option value="14:00">14:00</option>
+                                <option value="19:00">19:00</option>
+                                <option value="19:30">19:30</option>
+                                <option value="20:00">20:00</option>
+                                <option value="20:30">20:30</option>
+                                <option value="21:00">21:00</option>
+                                <option value="21:30">21:30</option>
+                                <option value="22:00">22:00</option>
+                            </select>
+                            <span class="error-message" id="time-error"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="guests">Nombre de personnes *</label>
+                        <select id="guests" name="guests" required>
+                            <option value="">Sélectionnez</option>
+                            <option value="1">1 personne</option>
+                            <option value="2">2 personnes</option>
+                            <option value="3">3 personnes</option>
+                            <option value="4">4 personnes</option>
+                            <option value="5">5 personnes</option>
+                            <option value="6">6 personnes</option>
+                            <option value="7">7 personnes</option>
+                            <option value="8">8 personnes</option>
+                            <option value="9">9+ personnes</option>
+                        </select>
+                        <span class="error-message" id="guests-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="special-requests">Demandes spéciales</label>
+                        <textarea id="special-requests" name="special-requests" rows="4" placeholder="Allergies, occasions spéciales, etc."></textarea>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">J'accepte les <a href="#" target="_blank">conditions générales</a> *</label>
+                        <span class="error-message" id="terms-error"></span>
+                    </div>
+
+                    <button type="submit" class="btn">Réserver</button>
+                </form>
+
+                <div id="success-message" class="success-message" style="display: none;">
+                    <h4>Réservation confirmée !</h4>
+                    <p>Nous avons bien reçu votre demande de réservation. Vous recevrez un email de confirmation sous peu.</p>
+                </div>
+            </div>
+
+            <div class="reservation-info">
+                <h3>Informations importantes</h3>
+                <ul>
+                    <li><strong>Confirmation :</strong> Toutes les réservations sont sujettes à confirmation téléphonique.</li>
+                    <li><strong>Annulation :</strong> Veuillez annuler au moins 24h à l'avance.</li>
+                    <li><strong>Groupes :</strong> Pour plus de 8 personnes, contactez-nous directement.</li>
+                    <li><strong>Horaires :</strong> Déjeuner 12h-14h30, Dîner 19h-22h (23h le week-end).</li>
+                </ul>
+
+                <div class="contact-info">
+                    <h4>Nous contacter</h4>
+                    <p>Tél: +33 4 78 12 34 56</p>
+                    <p>Email: reservations@restaurant-lyon.com</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>123 Rue de la Gastronomie<br>Lyon, France 69000</p>
+                <p>Tél: +33 4 78 12 34 56</p>
+                <p>Email: info@restaurant-lyon.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Heures d'ouverture</h3>
+                <p>Lundi - Vendredi: 12h - 14h30, 19h - 22h</p>
+                <p>Samedi - Dimanche: 12h - 15h, 19h - 23h</p>
+            </div>
+            <div class="footer-section">
+                <h3>Suivez-nous</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">Facebook</a>
+                    <a href="#" aria-label="Instagram">Instagram</a>
+                    <a href="#" aria-label="Twitter">Twitter</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Restaurant Lyon. Tous droits réservés. | <a href="#">Politique de confidentialité</a> | <a href="#">Mentions légales</a></p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
